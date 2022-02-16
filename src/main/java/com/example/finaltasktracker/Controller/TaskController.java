@@ -33,6 +33,11 @@ public class TaskController {
         return taskService.saveTask(tasks);
     }
 
+    @PostMapping(path = "/deleteTask")
+    public String deleteTask(@RequestParam("id") int id) {
+        return taskService.deleteTask(id);
+    }
+
     //
     //Put
     //
