@@ -37,4 +37,8 @@ public class TaskController {
     //Put
     //
 
+    @PutMapping(path = "/updateTask")
+    public Tasks updateTask(@RequestBody Tasks tasks) {
+        return taskService.updateTask(tasks);
+    }
 }
