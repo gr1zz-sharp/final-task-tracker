@@ -22,13 +22,30 @@ public class TaskService {
         this.taskRepository = taskRepository;
     }
 
+    //
+    //Get
+    //
+
     public List<Tasks> getTasks() {
         return taskRepository.findAll();
     }
 
+    //
+    //Post
+    //
+
     public Tasks saveTask(Tasks tasks) {
         return taskRepository.save(tasks);
     }
+
+    public String deleteTask(int id) {
+        taskRepository.deleteById(id);
+        return "Successfully Deleted Task";
+    }
+
+    //
+    //Put
+    //
 
     public Tasks updateTask(Tasks tasks) {
         template.update(UPDATE_TASK, tasks.getTask(), tasks.getId());
