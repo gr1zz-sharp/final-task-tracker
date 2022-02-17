@@ -33,7 +33,12 @@ function TaskForm(props) {
             value={input}
             onChange={handleChange}
             name='text'
+<<<<<<< Updated upstream
             ref={inputRef}/>
+=======
+            ref={inputRef}
+            className='inputField'/>
+>>>>>>> Stashed changes
           <button onClick={handleSubmit}>
             Update
           </button>

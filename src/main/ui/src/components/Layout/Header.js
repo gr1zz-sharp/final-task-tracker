@@ -2,6 +2,7 @@ import React from 'react';
 import  './Header.css';
 import toDoImage from '../../assets/todoimage.png';
 import toDoIcon from '../../assets/todo icon.png';
+import TaskSummary from '../TaskTracker/TaskSummary';
 
 const Header = () => {
   return (
@@ -16,6 +17,7 @@ const Header = () => {
             <div className='main-image'>
             <img src={toDoImage} alt='To Do List'/>
             </div>
+            <TaskSummary/>
     </div>
   )
 }

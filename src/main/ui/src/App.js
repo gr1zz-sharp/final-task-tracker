@@ -9,8 +9,13 @@ function App() {
       <Header/>
       <TaskSummary/>
       <main>
+<<<<<<< Updated upstream
         <TaskList/>
+=======
+        <AddTask onAdd={addTask} setTasks={setTaskList}/>
+>>>>>>> Stashed changes
       </main>
+      <TaskList tasks={taskList}/>
     </Fragment>
   );
 }
