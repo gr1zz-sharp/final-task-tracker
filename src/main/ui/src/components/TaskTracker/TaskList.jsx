@@ -44,13 +44,13 @@ const TaskList = ({ tasks }) => {
   return (
     <>
       <TaskSummary/>
-      <table>
-        <tbody>
+      <table className='wrapper'>
+        <tbody >
           {tasks.map((task) => {
             return(
-              <tr key={task.id}>
-                <td>{task.task}</td>
-              </tr>
+              <ul key={task.id} className="todoList" >
+                <li>{task.task}</li>
+              </ul>
             )
           })}
         </tbody>
