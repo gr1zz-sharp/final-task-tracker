@@ -18,7 +18,8 @@ const AddTask = ({ onAdd, setTasks }) => {
     }
 
     return(
-        <div>
+        <div className="wrapper">
+            <div className="inputField" >
             <input 
                 type="text" 
                 placeholder="Add a Task" 
@@ -26,6 +27,7 @@ const AddTask = ({ onAdd, setTasks }) => {
                 onChange={ e => setTask(e.target.value)}
             />
             <button type="submit" onClick={e => onSubmit(e)}>Add Task</button>
+            </div>
         </div>
     )
 }
