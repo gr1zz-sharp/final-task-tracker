@@ -43,7 +43,7 @@ const TaskList = ({ tasks }) => {
 
   return (
     <>
-      <TaskSummary/>
+     
       <table className='wrapper'>
         <tbody >
           {tasks.map((task) => {

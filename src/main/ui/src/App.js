@@ -18,8 +18,9 @@ function App() {
     <Fragment>
       <Header tasks={taskList}/>
       <main>
+      <AddTask onAdd={addTask} setTasks={setTaskList}/>
         <TaskList tasks={taskList}/>
-        <AddTask onAdd={addTask} setTasks={setTaskList}/>
+        
       </main>
     </Fragment>
   );
