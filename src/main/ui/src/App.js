@@ -16,7 +16,7 @@ function App() {
 
   return (
     <Fragment>
-      <Header/>
+      <Header tasks={taskList}/>
       <main>
         <TaskList tasks={taskList}/>
         <AddTask onAdd={addTask} setTasks={setTaskList}/>
