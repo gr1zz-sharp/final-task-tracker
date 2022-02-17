@@ -22,7 +22,6 @@ function App() {
         <AddTask onAdd={addTask} setTasks={setTaskList}/>
       </main>
     </Fragment>
-
   );
 }
 

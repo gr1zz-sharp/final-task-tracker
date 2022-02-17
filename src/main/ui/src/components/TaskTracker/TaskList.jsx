@@ -48,9 +48,9 @@ const TaskList = ({ tasks }) => {
         <tbody >
           {tasks.map((task) => {
             return(
-              <ul key={task.id} className="todoList" >
-                <li>{task.task}</li>
-              </ul>
+              <tr key={task.id} className="todoList" >
+                <td>{task.task}</td>
+              </tr>
             )
           })}
         </tbody>
