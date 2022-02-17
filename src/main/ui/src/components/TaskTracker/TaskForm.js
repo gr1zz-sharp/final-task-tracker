@@ -25,21 +25,19 @@ function TaskForm(props) {
   };
 
   return (
-      <div className='wrapper'>
+    <div className='wrapper'>
     <form onSubmit={handleSubmit} className="inputField" >
       {props.edit ? (
-        <div>
+        <>
           <input
-            placeholder='Update your item'
             value={input}
             onChange={handleChange}
             name='text'
-            ref={inputRef}
-            className='inputField'/> <input type="date" id="birthday" name="birthday"></input>
+            ref={inputRef}/>
           <button onClick={handleSubmit}>
             Update
           </button>
-          </div>
+          </>
       ) : (
         <>
           <input

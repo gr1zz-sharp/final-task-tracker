@@ -26,21 +26,19 @@ const Task = ({ todos, completeTodo, removeTodo, updateTodo }) => {
 
     <div className='task-wrapper' key={index}>
         <ul className="todoList">
-            <>
-      <li key={todo.id} onClick={() => completeTodo(todo.id)}>
-        {todo.text}
-      </li>
-      </>
-      <div className='icons'>
-        <RiCloseCircleLine
-          onClick={() => removeTodo(todo.id)}
-          className='delete-icon'
-        />
-        <TiEdit
-          onClick={() => setEdit({ id: todo.id, value: todo.text })}
-          className='edit-icon'
-        />
-      </div>
+        <>
+            <li key={todo.id} onClick={() => completeTodo(todo.id)}>
+                {todo.text}
+            </li>
+        </>
+            <div className='icons'>
+                <RiCloseCircleLine
+                onClick={() => removeTodo(todo.id)}
+                className='delete-icon'/>
+                <TiEdit
+                onClick={() => setEdit({ id: todo.id, value: todo.text })}
+                className='edit-icon'/>
+            </div>
       </ul>
     </div>
   ));

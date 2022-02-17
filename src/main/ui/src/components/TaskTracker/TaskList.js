@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import TaskForm from './TaskForm';
 import Task from './Task';
-import TaskSummary from './TaskSummary'
+
 
 function TaskList() {
   const [todos, setTodos] = useState([]);
@@ -42,8 +42,7 @@ function TaskList() {
   };
 
   return (
-    <>
-      <TaskSummary/>
+    <div>
       <TaskForm onSubmit={addTodo} />
       <Task
         todos={todos}
@@ -51,7 +50,7 @@ function TaskList() {
         removeTodo={removeTodo}
         updateTodo={updateTodo}
       />
-    </>
+    </div>
   );
 }
 
