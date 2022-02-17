@@ -1,25 +1,58 @@
-import React from 'react';
-import './TaskList.css';
-import { RiCloseCircleLine } from 'react-icons/ri';
-import { TiEdit } from 'react-icons/ti';
+import React, { useState } from 'react';
+import TaskForm from './TaskForm';
+import Task from './Task';
+import TaskSummary from './TaskSummary'
 
-const TaskList = () => {
+function TaskList() {
+  const [todos, setTodos] = useState([]);
+
+  const addTodo = todo => {
+    if (!todo.text || /^\s*$/.test(todo.text)) {
+      return;
+    }
+
+    const newTodos = [todo, ...todos];
+
+    setTodos(newTodos);
+    console.log(...todos);
+  };
+
+  const updateTodo = (todoId, newValue) => {
+    if (!newValue.text || /^\s*$/.test(newValue.text)) {
+      return;
+    }
+
+    setTodos(prev => prev.map(item => (item.id === todoId ? newValue : item)));
+  };
+
+  const removeTodo = id => {
+    const removedArr = [...todos].filter(todo => todo.id !== id);
+
+    setTodos(removedArr);
+  };
+
+  const completeTodo = id => {
+    let updatedTodos = todos.map(todo => {
+      if (todo.id === id) {
+        todo.isComplete = !todo.isComplete;
+      }
+      return todo;
+    });
+    setTodos(updatedTodos);
+  };
+
   return (
-    <div>
-        <div class="wrapper">
-            <header>Track your Tasks:</header>
-                <div className="inputField">
-                <input type="text" placeholder="Add your new todo"/>
-                <button className='button'>Submit</button>
-                </div>
-        <ul className="todoList">
-            <li className='icons'>
-            <input type='checkbox'/>&nbsp;Code<TiEdit className='edit-icon'/><RiCloseCircleLine className='delete-icon'/>
-            </li>
-        </ul>
-        </div>
-    </div>
-  )
+    <>
+      <TaskSummary/>
+      <TaskForm onSubmit={addTodo} />
+      <Task
+        todos={todos}
+        completeTodo={completeTodo}
+        removeTodo={removeTodo}
+        updateTodo={updateTodo}
+      />
+    </>
+  );
 }
 
-export default TaskList
+export default TaskList;

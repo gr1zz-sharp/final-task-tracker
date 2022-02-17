@@ -1,13 +1,14 @@
 import Header from './components/Layout/Header';
 import { Fragment } from 'react';
-import TaskContainer from './components/TaskTracker/TaskContainer';
+import TaskList from './components/TaskTracker/TaskList';
+
 
 function App() {
   return (
     <Fragment>
       <Header/>
       <main>
-        <TaskContainer/>
+        <TaskList/>
       </main>
     </Fragment>
   );
