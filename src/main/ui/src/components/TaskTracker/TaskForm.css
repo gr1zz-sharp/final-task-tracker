@@ -56,6 +56,7 @@ body{
   max-height: 250px;
   overflow-y: auto;
   width: 100%;
+  
 }
 
 .todoList {
@@ -65,9 +66,10 @@ body{
   background: #f2f2f2;
   border-radius: 3px;
   padding: 10px 15px;
-  cursor: default;
+  cursor: pointer;
   overflow: hidden;
   word-wrap: break-word;
+  
 }
 
 .icons {
@@ -96,7 +98,7 @@ body{
   box-shadow: 0px 10px 15px rgba(0,0,0,0.1);
 }
 .calendar{
-    background: rgb(140, 140, 143);
+    background: rgb(213, 213, 218);
     max-width: 800px;
     width: 50%;
     margin: 20px auto;
@@ -109,6 +111,15 @@ body{
 .complete{
   text-decoration: line-through;
   opacity: 0.4;
+  position: relative;
+  list-style: none;
+  margin-bottom: 8px;
+  background: #f2f2f2;
+  border-radius: 3px;
+  padding: 10px 15px;
+  cursor: default;
+  overflow: hidden;
+  word-wrap: break-word;
 }
 
 
