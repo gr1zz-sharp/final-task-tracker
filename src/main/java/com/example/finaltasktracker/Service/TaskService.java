@@ -15,6 +15,7 @@ public class TaskService {
     private JdbcTemplate template;
 
     private final String UPDATE_TASK = "update tasks set task = ? where id = ?";
+    private final String UPDATE_STATUS = "update tasks set status = ? where id = ?";
 
     private TaskRepository taskRepository;
 
@@ -49,6 +50,11 @@ public class TaskService {
 
     public Tasks updateTask(Tasks tasks) {
         template.update(UPDATE_TASK, tasks.getTask(), tasks.getId());
+        return tasks;
+    }
+
+    public Tasks updateStatus(Tasks tasks) {
+        template.update(UPDATE_STATUS, tasks.getStatus(), tasks.getId());
         return tasks;
     }
 }

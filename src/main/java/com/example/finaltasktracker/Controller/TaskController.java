@@ -46,4 +46,7 @@ public class TaskController {
     public Tasks updateTask(@RequestBody Tasks tasks) {
         return taskService.updateTask(tasks);
     }
+
+    @PutMapping(path = "/updateStatus")
+    public Tasks updateStatus(@RequestBody Tasks tasks){ return taskService.updateStatus(tasks); }
 }
