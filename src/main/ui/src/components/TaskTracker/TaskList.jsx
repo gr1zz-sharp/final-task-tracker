@@ -5,7 +5,7 @@ import TaskSummary from './TaskSummary';
 import { RiCloseCircleLine } from 'react-icons/ri';
 import { TiEdit } from 'react-icons/ti';
 
-const TaskList = ({ tasks, setTasks, onDelete }) => {
+const TaskList = ({ tasks, setTasks, onDelete, onUpdateStatus }) => {
   // const [todos, setTodos] = useState([]);
 
   // const addTodo = todo => {
@@ -52,6 +52,21 @@ const TaskList = ({ tasks, setTasks, onDelete }) => {
     onDelete(task, setTasks)
   }
 
+  const changeStatus = (e, task) => {
+    e.preventDefault()
+    if(!task){
+      alert('oh, its you agiain')
+    }
+    console.log(task)
+    if(task.status === true ){
+      task.status = false
+    } else {
+      task.status = true
+    }
+    console.log(task.status)
+    onUpdateStatus(task, setTasks)
+  }
+
   return (
     <>
       <table className='wrapper'>
@@ -59,7 +74,12 @@ const TaskList = ({ tasks, setTasks, onDelete }) => {
           {tasks.map((task) => {
             return(
               <tr  key={task.id}  >
-                <td className={task.status ? 'complete': 'todoList'} >{task.task}</td>
+                <td 
+                  className={task.status ? 'todoList' : 'complete'}
+                  onClick={e => changeStatus(e, task)} 
+                  >
+                    {task.task}
+                  </td>
                 <td className='icons'>
                 <RiCloseCircleLine className='delete-icon' type='button' onClick={ e => clickHandler(e, task)}>Delete</RiCloseCircleLine> <TiEdit/>
                 </td>

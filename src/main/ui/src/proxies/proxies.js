@@ -47,3 +47,13 @@ export const deleteTask = (task, setTasks) => {
 //Put
 //
 
+export const updateStatus = (task, setTasks) => {
+    fetch('api/updateStatus', {
+        method: 'PUT',
+        headers: {"Content-type": 'application/json'},
+        body: JSON.stringify(task)
+    })
+        .catch(error => {console.error('Error: ', error)})
+    getTasks(setTasks)
+    window.location.reload(false)
+}
