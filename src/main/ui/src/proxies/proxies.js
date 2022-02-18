@@ -30,6 +30,18 @@ export const addTask = (task, setTasks) => {
         .catch(error => {console.error('Error: ', error)})
 }
 
+export const deleteTask = (task, setTasks) => {
+    console.log(task.id)
+    fetch(`api/deleteTask?id=${task.id}`, {
+        method: 'Post',
+        headers: {'Content-type': 'application/json'},
+        body: JSON.stringify(task)
+    })
+        .catch(error => {console.error('Error: ', error)})
+    getTasks(setTasks)
+    window.location.reload(false)
+}
+
 
 //
 //Put

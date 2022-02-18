@@ -1,6 +1,6 @@
 import Header from './components/Layout/Header';
 import { Fragment, useEffect, useState } from 'react';
-import { getTasks, addTask } from './proxies/proxies';
+import { getTasks, addTask, deleteTask } from './proxies/proxies';
 import TaskList from './components/TaskTracker/TaskList';
 import AddTask from './components/TaskTracker/AddTask';
 
@@ -19,8 +19,7 @@ function App() {
       <Header tasks={taskList}/>
       <main>
       <AddTask onAdd={addTask} setTasks={setTaskList}/>
-        <TaskList tasks={taskList}/>
-        
+        <TaskList tasks={taskList} setTasks={setTaskList} onDelete={deleteTask}/>
       </main>
     </Fragment>
   );

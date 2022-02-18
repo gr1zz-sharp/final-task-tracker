@@ -3,7 +3,7 @@ import TaskForm from './TaskForm';
 import Task from './Task';
 import TaskSummary from './TaskSummary'
 
-const TaskList = ({ tasks }) => {
+const TaskList = ({ tasks, setTasks, onDelete }) => {
   // const [todos, setTodos] = useState([]);
 
   // const addTodo = todo => {
@@ -41,15 +41,26 @@ const TaskList = ({ tasks }) => {
   //   setTodos(updatedTodos);
   // };
 
+  const clickHandler = (e, task) => {
+    e.preventDefault()
+    if(!task){
+      alert('how did you do that?')
+    }
+    console.log(task)
+    onDelete(task, setTasks)
+  }
+
   return (
     <>
-     
       <table className='wrapper'>
         <tbody >
           {tasks.map((task) => {
             return(
               <tr key={task.id} className="todoList" >
                 <td>{task.task}</td>
+                <td>
+                  <button type='button' onClick={ e => clickHandler(e, task)}>Delete</button>
+                </td>
               </tr>
             )
           })}
