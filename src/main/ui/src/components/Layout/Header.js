@@ -1,10 +1,14 @@
-import React from 'react';
+import React,{useState} from 'react';
 import  './Header.css';
 import toDoImage from '../../assets/todoimage.png';
 import toDoIcon from '../../assets/todo icon.png';
 import TaskSummary from '../TaskTracker/TaskSummary';
+import Calendar from 'react-calendar';
+import 'react-calendar/dist/Calendar.css';
 
 const Header = ({ tasks }) => {
+  const [value, onChange] = useState(new Date());
+
   return (
     <div>
         <header className='header'>
@@ -18,7 +22,8 @@ const Header = ({ tasks }) => {
             <img src={toDoImage} alt='To Do List'/>
             </div>
             <TaskSummary/>
-    </div>
+            <div><Calendar className='calendar' onChange={onChange} value={value} /></div>
+            </div>
   )
 }
 

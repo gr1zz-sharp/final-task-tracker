@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import TaskForm from './TaskForm';
 import Task from './Task';
-import TaskSummary from './TaskSummary'
+import TaskSummary from './TaskSummary';
+import { RiCloseCircleLine } from 'react-icons/ri';
+import { TiEdit } from 'react-icons/ti';
 
 const TaskList = ({ tasks, setTasks, onDelete }) => {
   // const [todos, setTodos] = useState([]);
@@ -56,10 +58,10 @@ const TaskList = ({ tasks, setTasks, onDelete }) => {
         <tbody >
           {tasks.map((task) => {
             return(
-              <tr key={task.id} className="todoList" >
-                <td>{task.task}</td>
-                <td>
-                  <button type='button' onClick={ e => clickHandler(e, task)}>Delete</button>
+              <tr  key={task.id}  >
+                <td className={task.status ? 'complete': 'todoList'} >{task.task}</td>
+                <td className='icons'>
+                <RiCloseCircleLine className='delete-icon' type='button' onClick={ e => clickHandler(e, task)}>Delete</RiCloseCircleLine> <TiEdit/>
                 </td>
               </tr>
             )
